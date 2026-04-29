@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Obesity Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        input, select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .full {
+            grid-column: span 2;
+        }
+        button {
+            grid-column: span 2;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #222;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Obesity Level Prediction</h2>
+
+```
+<form action="/predict" method="post">
+
+    <select name="Gender">
+        <option>Male</option>
+        <option>Female</option>
+    </select>
+
+    <input type="number" step="any" name="Age" placeholder="Age" required>
+
+    <input type="number" step="any" name="Height" placeholder="Height (m)" required>
+
+    <input type="number" step="any" name="Weight" placeholder="Weight (kg)" required>
+
+    <select name="family_history_with_overweight">
+        <option value="yes">Family History (Yes)</option>
+        <option value="no">Family History (No)</option>
+    </select>
+
+    <select name="FAVC">
+        <option value="yes">Frequent High Calorie Food (Yes)</option>
+        <option value="no">No</option>
+    </select>
+
+    <input type="number" step="any" name="FCVC" placeholder="Vegetable Consumption (1-3)" required>
+
+    <input type="number" step="any" name="NCP" placeholder="Meals per day" required>
+
+    <select name="CAEC">
+        <option>no</option>
+        <option>Sometimes</option>
+        <option>Frequently</option>
+        <option>Always</option>
+    </select>
+
+    <select name="SMOKE">
+        <option value="no">Do you Smoke? No</option>
+        <option value="yes">Yes</option>
+    </select>
+
+    <input type="number" step="any" name="CH2O" placeholder="Water intake (liters)" required>
+
+    <select name="SCC">
+        <option value="no">Calories Monitoring? No</option>
+        <option value="yes">Yes</option>
+    </select>
+
+    <input type="number" step="any" name="FAF" placeholder="Physical Activity" required>
+
+    <input type="number" step="any" name="TUE" placeholder="Screen Time" required>
+
+    <select name="CALC">
+        <option>no</option>
+        <option>Sometimes</option>
+        <option>Frequently</option>
+        <option>Always</option>
+    </select>
+
+    <select name="MTRANS" class="full">
+        <option>Automobile</option>
+        <option>Motorbike</option>
+        <option>Bike</option>
+        <option>Public_Transportation</option>
+        <option>Walking</option>
+    </select>
+
+    <button type="submit">Predict</button>
+
+</form>
+
+<div class="result">
+    {{ prediction_text }}
+</div>
+```
+
+</div>
+
+</body>
+</html>
